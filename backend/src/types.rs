@@ -1,7 +1,7 @@
-use serde::Deserialize;use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Deserialize)]
-enum MealTime {
+#[derive(Deserialize, Clone, Copy)]
+pub enum MealTime {
     Breakfast,
     Lunch,
     Dinner,
@@ -9,7 +9,7 @@ enum MealTime {
 }
 
 impl MealTime {
-    fn get_name(self) -> String {
+    pub fn get_name(self) -> String {
         match self {
             MealTime::Breakfast => "breakfast",
             MealTime::Lunch => "lunch",
@@ -20,8 +20,16 @@ impl MealTime {
     }
 }
 
-#[derive(Deserialize)]
-struct RateSingleMealRequest {
-    meal_time: MealTime,
-    components: Vec<String>,
+#[derive(Deserialize, Clone)]
+pub struct RateSingleMealRequest {
+    pub meal_time: MealTime,
+    pub components: Vec<String>,
+    pub user: User,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct User {
+    pub age: u32,
+    pub weight: u32,
+    pub gender: String,
 }
