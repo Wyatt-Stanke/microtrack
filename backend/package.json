@@ -1,0 +1,23 @@
+{
+	"name": "@microtrack/backend",
+	"version": "1.0.0",
+	"description": "",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "tsc"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@trpc/server": "^10.23.0",
+		"langchain": "^0.0.66",
+		"openai": "^3.2.1",
+		"zod": "^3.21.4"
+	},
+	"devDependencies": {
+		"typescript": "^5.0.4"
+	}
+}
