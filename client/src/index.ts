@@ -1,4 +1,4 @@
-import { createTRPCProxyClient, httpBatchLink } from "@trpc/client";
+import { TRPCClient, createTRPCProxyClient, httpBatchLink } from "@trpc/client";
 import type { AppRouter } from "@microtrack/backend";
 
 const trpc = createTRPCProxyClient<AppRouter>({
@@ -8,8 +8,6 @@ const trpc = createTRPCProxyClient<AppRouter>({
 		}),
 	],
 });
-
-export { trpc };
 
 trpc.rateSingleMeal.query({
 	time: "breakfast",
